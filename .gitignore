@@ -1,0 +1,51 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+*.bak
+*.old
+
+# Local testing
+coverage/
+*.pid
+*.seed
+*.tgz
+
+# Local data storage for demo/testing (optional)
+localStorageBackup.json
+
+# MacOS + Windows hidden files
+Icon?
+ehthumbs.db
+desktop.ini
+
+# Netlify or Vercel local
+.netlify/
+.vercel/
