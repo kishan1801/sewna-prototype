@@ -5,11 +5,11 @@ Focus: discover independent fashion designers and enable designers to publish po
 
 ## Live demo
 
-<PASTE_LIVE_NETLIFY_URL_HERE>
+https://stellular-begonia-220afc.netlify.app/
 
 ## GitHub
 
-https://github.com/YOUR_USERNAME/sewna-prototype
+https://github.com/kishan1801/sewna-prototype
 
 ## What I built
 

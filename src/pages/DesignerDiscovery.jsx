@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DesignerCard from "../components/DesignerCard";
-import Modal from "../components/_Modal"; // change to ../components/Modal if yours is named Modal.jsx
+import Modal from "../components/_Modal";
 import { SAMPLE_DESIGNERS } from "./designerData";
 import { getFavorites } from "../utils/favorites";
 
@@ -40,20 +40,17 @@ export default function DesignerDiscovery() {
     "Ready-to-wear",
   ];
 
-  // initial simulated load
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 380);
     return () => clearTimeout(t);
   }, []);
 
-  // whenever query/tag/saved toggle changes, show skeleton briefly
   useEffect(() => {
     setLoading(true);
     const t = setTimeout(() => setLoading(false), 280);
     return () => clearTimeout(t);
   }, [query, selectedTag, showSavedOnly]);
 
-  // assemble designers: built-in + published
   const published = getPublishedDesigners();
   const ALL_DESIGNERS = [...SAMPLE_DESIGNERS, ...published];
 

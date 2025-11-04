@@ -23,7 +23,6 @@ export default function DesignerProfile() {
   const ALL_DESIGNERS = [...SAMPLE_DESIGNERS, ...getPublishedDesigners()];
   const designer = ALL_DESIGNERS.find((d) => String(d.id) === String(id));
 
-  // If designer not found, show friendly UI and avoid crashes
   if (!designer) {
     return (
       <div className="container" style={{ paddingTop: 40 }}>

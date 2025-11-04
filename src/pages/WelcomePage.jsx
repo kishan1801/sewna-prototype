@@ -1,5 +1,5 @@
-// src/pages/WelcomePage.jsx
 import { useNavigate } from "react-router-dom";
+import sewnaLogo from "../assets/sewnaLogo4.png";
 
 export default function WelcomePage() {
   const nav = useNavigate();
@@ -7,9 +7,25 @@ export default function WelcomePage() {
   return (
     <div
       className="hero"
-      style={{ minHeight: "72vh", display: "grid", placeItems: "center" }}
+      style={{
+        minHeight: "72vh",
+        display: "grid",
+        placeItems: "center",
+      }}
     >
       <div className="container" style={{ textAlign: "center", maxWidth: 720 }}>
+        {/* 🪡 Logo Section */}
+        <img
+          src={sewnaLogo}
+          alt="Sewna Logo"
+          style={{
+            width: 140,
+            height: "auto",
+            marginBottom: 20,
+            borderRadius: "50%",
+          }}
+        />
+
         <h1 style={{ margin: 0, fontSize: 48, fontWeight: 700 }}>
           Bring your dream outfit to life
         </h1>

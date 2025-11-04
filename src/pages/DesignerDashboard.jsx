@@ -24,9 +24,8 @@ export default function DesignerDashboard() {
     location: "",
     bio: "",
     keywords: "",
-    portfolio: [], // {name, data}
+    portfolio: [],
     priceFrom: "",
-    // optional publishId may be added after publishing
   });
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState(null);
@@ -35,9 +34,7 @@ export default function DesignerDashboard() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setProfile(JSON.parse(raw));
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
   }, []);
 
   function updateField(key, val) {
@@ -48,7 +45,6 @@ export default function DesignerDashboard() {
     const files = e.target.files;
     if (!files || files.length === 0) return;
     const items = await readFilesAsDataURLs(files);
-    // append to portfolio (newest first)
     setProfile((p) => ({ ...p, portfolio: [...items, ...p.portfolio] }));
     e.target.value = null;
     setMessage(`${items.length} image(s) added`);
@@ -102,8 +98,6 @@ export default function DesignerDashboard() {
     setTimeout(() => setMessage(null), 900);
   }
 
-  // publish profile so it appears in discovery (frontend-only)
-  // this version uses/creates a stable publishId so re-publishing updates instead of duplicating
   function publishProfile() {
     try {
       const id = profile.publishId || `local-${Date.now()}`;
@@ -135,7 +129,6 @@ export default function DesignerDashboard() {
         JSON.stringify(existing)
       );
 
-      // persist publishId into the saved profile
       const updatedProfile = { ...profile, publishId: id };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
       setProfile(updatedProfile);
@@ -153,7 +146,6 @@ export default function DesignerDashboard() {
     }
   }
 
-  // unpublish this profile (remove from local published list)
   function unpublishProfile() {
     if (!profile.publishId) {
       alert("No published profile to remove.");
@@ -174,7 +166,6 @@ export default function DesignerDashboard() {
         JSON.stringify(filtered)
       );
 
-      // remove publishId from profile and persist
       const newProfile = { ...profile };
       delete newProfile.publishId;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newProfile));
