@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import sewnaLogo from "../assets/sewnaLogo4.png";
+import sewnaLogo from "../assets/sewnalogo4.png";
 
 export default function WelcomePage() {
   const nav = useNavigate();
